@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <script>
+          function cl()
+          {
+              var hat= new XMLHttpRequest;
+              hat.onreadystatechange = function()
+              {
+                  if (this.readyState==4 && this.status==200)
+                  {
+                      var help= JSON.parse(this.responseText);
+                      document.getElementById("me").innerHTML = help.phone[0].Name;
+                  }
+                  
+              }
+              hat.open('GET','Phone1.json',true);
+              hat.send();
+          } 
+      </script>
+</head>
+<body>
+<p>What is AJAJ?</p>
+<button onclick="cl()">click here to see the change</button>
+<div id="me"></div> 
+</body>
+</html>
